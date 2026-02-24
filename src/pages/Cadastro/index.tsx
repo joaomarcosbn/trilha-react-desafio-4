@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { api } from "../../services/api";
-
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 
 import {
   Container,
@@ -14,12 +13,13 @@ import {
   Column,
   Spacing,
   Title,
-  CriarText,
+  FazerLogin,
 } from "./styles";
 import { IFormLogin } from "./types";
 
 const schema = yup
   .object({
+    name: yup.string().required("Campo obrigatório"),
     email: yup.string().email("E-mail inválido").required("Campo obrigatório"),
     password: yup
       .string()
@@ -28,7 +28,7 @@ const schema = yup
   })
   .required();
 
-const Login = () => {
+const Cadastro = () => {
   const navigate = useNavigate();
 
   const {
@@ -42,27 +42,49 @@ const Login = () => {
 
   const onSubmit = async (formData: IFormLogin) => {
     try {
-      const { data } = await api.get(
-        `users?email=${formData.email}&password=${formData.password}`,
+      const { data: userExists } = await api.get(
+        `users?email=${formData.email}`,
       );
 
-      if (data.length === 1) {
-        alert(`Usuário ${data[0].name} logado com sucesso!`);
+      if (userExists.length > 0) {
+        alert("Este e-mail já está em uso. Tente fazer login.");
+        return;
+      }
+
+      const { data } = await api.post("/users", {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (data.id) {
+        alert("Conta criada com sucesso! Bem-vindo.");
         navigate("/feed");
       } else {
-        alert("Email ou senha inválidos.");
+        alert("Erro ao criar conta. Tente novamente.");
       }
     } catch (error) {
-      console.error("Erro ao realizar login:", error);
+      console.error("Erro ao cadastrar:", error);
       alert("Houve um erro no sistema.");
     }
+  };
+
+  const handleClickSignIn = () => {
+    navigate("/");
   };
 
   return (
     <Container>
       <LoginContainer>
         <Column>
-          <Title>Login</Title>
+          <Title>Cadastro</Title>
+          <Spacing />
+          <Input
+            name="name"
+            placeholder="Nome Completo"
+            control={control}
+            errorMessage={errors?.name?.message}
+          />
           <Spacing />
           <Input
             name="email"
@@ -80,16 +102,27 @@ const Login = () => {
           />
           <Spacing />
           <Button
-            title="Entrar"
+            title="Cadastrar"
             onClick={handleSubmit(onSubmit)}
             disabled={!isValid}
           />
           <br />
-          <CriarText>Crie sua conta</CriarText>
+
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              gap: "5px",
+              fontWeight: "bold",
+            }}
+          >
+            <span>Já tenho conta.</span>
+            <FazerLogin onClick={handleClickSignIn}>Fazer login</FazerLogin>
+          </div>
         </Column>
       </LoginContainer>
     </Container>
   );
 };
 
-export default Login;
+export default Cadastro;

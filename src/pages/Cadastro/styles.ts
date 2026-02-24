@@ -47,13 +47,12 @@ export const Spacing = styled.div`
   margin: 10px 0;
 `;
 
-export const CriarText = styled.p`
+export const FazerLogin = styled.span`
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 19px;
-  color: #e23dd7;
+  color: #3de287;
   cursor: pointer;
-  align-self: center;
 `;
