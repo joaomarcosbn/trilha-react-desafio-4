@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# 💻 Trilha React - Desafio 4 (Login & Cadastro com TypeScript)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositório contém a resolução do **Desafio 04** da trilha de React da [DIO (Digital Innovation One)](https://www.dio.me/).
 
-## Available Scripts
+O objetivo principal deste projeto foi migrar e refatorar uma aplicação de validação de formulários, implementando **TypeScript**, **Styled Components** e **React Hook Form** para criar fluxos de autenticação (Login) e registro (Cadastro) robustos e tipados.
 
-In the project directory, you can run:
+## 🚀 Tecnologias Utilizadas
 
-### `npm start`
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **[React](https://reactjs.org/)** (Hooks e Functional Components)
+- **[TypeScript](https://www.typescriptlang.org/)** (Tipagem estática)
+- **[Styled Components](https://styled-components.com/)** (CSS-in-JS)
+- **[React Hook Form](https://react-hook-form.com/)** (Gerenciamento de formulários)
+- **[Yup](https://github.com/jquense/yup)** (Validação de schemas)
+- **[React Router Dom](https://reactrouter.com/)** (Roteamento de páginas)
+- **[Axios](https://axios-http.com/)** (Consumo de API)
+- **JSON Server** (Simulação de API REST)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ✨ Funcionalidades
 
-### `npm test`
+- ✅ **Página de Login:** Autenticação de usuários existentes.
+- ✅ **Página de Cadastro:** Criação de novas contas com validação de campos (Nome, E-mail e Senha).
+- ✅ **Validação de Formulários:** Feedback visual de erros (campos obrigatórios, e-mail inválido, senha curta) usando Yup.
+- ✅ **Integração com API:** Verificação de e-mail duplicado e persistência de dados no `db.json`.
+- ✅ **Roteamento:** Navegação protegida entre Login, Cadastro e Feed.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📦 Como Executar o Projeto
 
-### `npm run build`
+Para rodar o projeto localmente, você precisará ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clone o repositório
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone [https://github.com/joaomarcosbn/trilha-react-desafio-4.git](https://github.com/joaomarcosbn/trilha-react-desafio-4.git)
+cd trilha-react-desafio-4
+```
