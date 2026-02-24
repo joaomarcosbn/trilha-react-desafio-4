@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.main`
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* Ocupa a altura total da tela */
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+
+  /* Se o fundo roxo não estiver no globalStyles, adicione aqui: */
+  /* background-color: #81259d; */
 `;
 
 export const LoginContainer = styled.div`
@@ -17,23 +20,20 @@ export const LoginContainer = styled.div`
   border-radius: 8px;
   padding: 20px;
 
-  flex: 1;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens dentro do card */
 `;
 
-export const Title = styled.h1`
-  font-size: 42px;
+export const Title = styled.h2`
+  font-family: "Open Sans";
+  font-style: normal;
   font-weight: 700;
+  font-size: 32px;
+  max-width: 90%;
+  margin-bottom: 20px;
+  line-height: 44px;
   color: #81259d;
-`;
-
-export const Row = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
 `;
 
 export const Column = styled.div`
@@ -43,8 +43,21 @@ export const Column = styled.div`
   align-items: flex-start;
   justify-content: center;
 `;
+
 export const Spacing = styled.div`
   margin: 10px 0;
+`;
+
+export const FooterLogin = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* Alinha o texto à esquerda */
+  gap: 5px;
+  font-weight: 700;
+  font-family: "Open Sans";
+  font-size: 14px;
+  margin-top: 20px;
+  color: #000; /* Garante que o texto "Já tenho conta" apareça */
 `;
 
 export const FazerLogin = styled.span`
@@ -53,6 +66,10 @@ export const FazerLogin = styled.span`
   font-weight: 700;
   font-size: 14px;
   line-height: 19px;
-  color: #3de287;
+  color: #23dd7a;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;

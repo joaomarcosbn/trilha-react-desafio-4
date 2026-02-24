@@ -14,6 +14,7 @@ import {
   Spacing,
   Title,
   FazerLogin,
+  FooterLogin,
 } from "./styles";
 import { IFormLogin } from "./types";
 
@@ -70,7 +71,7 @@ const Cadastro = () => {
   };
 
   const handleClickSignIn = () => {
-    navigate("/");
+    navigate("/login");
   };
 
   return (
@@ -101,24 +102,15 @@ const Cadastro = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button
-            title="Cadastrar"
-            onClick={handleSubmit(onSubmit)}
-            disabled={!isValid}
-          />
+
+          <Button title="Cadastrar" onClick={handleSubmit(onSubmit)} />
+
           <br />
 
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              gap: "5px",
-              fontWeight: "bold",
-            }}
-          >
+          <FooterLogin>
             <span>Já tenho conta.</span>
             <FazerLogin onClick={handleClickSignIn}>Fazer login</FazerLogin>
-          </div>
+          </FooterLogin>
         </Column>
       </LoginContainer>
     </Container>
